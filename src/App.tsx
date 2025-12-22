@@ -1,13 +1,11 @@
 import { useState } from 'react';
 import { 
-  MapPin, Menu, X, ArrowRight, 
-  Users, Mic, Globe, Star, ChevronDown, 
+  Menu, X, ArrowRight, 
   Linkedin, Twitter, Instagram 
 } from 'lucide-react';
 
 const AuroraConference = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeCommittee, setActiveCommittee] = useState(0);
 
   // Data for the 6 Committees
   const committees = [
