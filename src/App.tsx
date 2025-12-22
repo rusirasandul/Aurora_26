@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Calendar, Clock, MapPin, ChevronRight, Menu, X, ArrowRight, Zap, Users, Code, Star } from 'lucide-react';
+import { useState } from 'react';
+import { MapPin, Menu, X, ArrowRight, Zap, Users, Code, Star } from 'lucide-react';
 
 const AuroraEventPage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
