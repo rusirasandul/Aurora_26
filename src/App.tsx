@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { 
-  Calendar, MapPin, Menu, X, ArrowRight, 
+  MapPin, Menu, X, ArrowRight, 
   Users, Mic, Globe, Star, ChevronDown, 
   Linkedin, Twitter, Instagram 
 } from 'lucide-react';
