@@ -1,6 +1,6 @@
-# Aurora 2025 Website
+# Aurora 2026 Website
 
-A stunning, modern website for the Aurora 2025 inter-university innovation hackathon featuring a dark theme with glowing orange accents.
+A stunning, modern website for the Aurora 2026 inter-university tech conference on Social Engineering and Agentic AI featuring a dark theme with glowing orange accents.
 
 ## Design Features
 

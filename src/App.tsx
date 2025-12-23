@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { 
   Menu, X, ArrowRight, 
-  Linkedin, Twitter, Instagram 
+  Linkedin, Twitter, Instagram, Facebook
 } from 'lucide-react';
 
 const AuroraConference = () => {
@@ -38,8 +38,8 @@ const AuroraConference = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <div className="flex-shrink-0 flex items-center gap-2">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-orange-600 to-amber-300 flex items-center justify-center shadow-[0_0_15px_rgba(251,146,60,0.5)]">
-                <span className="font-bold text-black text-xl">A</span>
+              <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-orange-600 to-amber-300 flex items-center justify-center shadow-[0_0_15px_rgba(251,146,60,0.5)] overflow-hidden">
+                <img src="/images/logo/Screenshot 2025-12-23 184548.png" alt="Aurora Logo" className="w-full h-full object-cover" />
               </div>
               <span className="font-bold text-2xl tracking-tighter">AURORA<span className="text-orange-400">2026</span></span>
             </div>
@@ -81,7 +81,7 @@ const AuroraConference = () => {
           </h1>
           
           <p className="max-w-2xl mx-auto text-lg md:text-xl text-neutral-400 mb-10 leading-relaxed font-light">
-            Sri Lanka's Premier Tech Conference on Agentic AI & IoT. <br/>
+            Sri Lanka's Premier Tech Conference on Social Engineering and Agentic AI. <br/>
             Join industry leaders, visionaries, and students for a day of insight.
           </p>
 
@@ -152,8 +152,19 @@ const AuroraConference = () => {
               <div className="w-24 h-24 rounded-full bg-neutral-800 mx-auto mb-4 overflow-hidden border-2 border-orange-500/20 group-hover:border-orange-500 transition-colors">
                  <img src="/api/placeholder/100/100" alt="Co-Chair" className="w-full h-full object-cover" />
               </div>
-              <h3 className="text-xl font-bold text-center text-white">Name Here</h3>
+              <h3 className="text-xl font-bold text-center text-white">Chamod Devranga</h3>
               <p className="text-orange-400 text-center text-sm font-mono uppercase mt-1">Co-Chair</p>
+              <div className="flex justify-center gap-3 mt-4">
+                <a href="#" className="w-8 h-8 rounded-full bg-neutral-800 flex items-center justify-center hover:bg-orange-500 hover:text-black transition-all">
+                  <Linkedin size={14}/>
+                </a>
+                <a href="#" className="w-8 h-8 rounded-full bg-neutral-800 flex items-center justify-center hover:bg-orange-500 hover:text-black transition-all">
+                  <Facebook size={14}/>
+                </a>
+                <a href="#" className="w-8 h-8 rounded-full bg-neutral-800 flex items-center justify-center hover:bg-orange-500 hover:text-black transition-all">
+                  <Instagram size={14}/>
+                </a>
+              </div>
            </div>
            
            {/* Co-Chair 2 */}
@@ -161,8 +172,19 @@ const AuroraConference = () => {
               <div className="w-24 h-24 rounded-full bg-neutral-800 mx-auto mb-4 overflow-hidden border-2 border-orange-500/20 group-hover:border-orange-500 transition-colors">
                  <img src="/api/placeholder/100/100" alt="Co-Chair" className="w-full h-full object-cover" />
               </div>
-              <h3 className="text-xl font-bold text-center text-white">Name Here</h3>
+              <h3 className="text-xl font-bold text-center text-white">Sachith Wickramasekara</h3>
               <p className="text-orange-400 text-center text-sm font-mono uppercase mt-1">Co-Chair</p>
+              <div className="flex justify-center gap-3 mt-4">
+                <a href="#" className="w-8 h-8 rounded-full bg-neutral-800 flex items-center justify-center hover:bg-orange-500 hover:text-black transition-all">
+                  <Linkedin size={14}/>
+                </a>
+                <a href="#" className="w-8 h-8 rounded-full bg-neutral-800 flex items-center justify-center hover:bg-orange-500 hover:text-black transition-all">
+                  <Facebook size={14}/>
+                </a>
+                <a href="#" className="w-8 h-8 rounded-full bg-neutral-800 flex items-center justify-center hover:bg-orange-500 hover:text-black transition-all">
+                  <Instagram size={14}/>
+                </a>
+              </div>
            </div>
 
            {/* Secretary & Treasurer (Split Column) */}
@@ -171,24 +193,57 @@ const AuroraConference = () => {
                 <div className="w-16 h-16 rounded-full bg-neutral-800 mx-auto mb-3 overflow-hidden">
                    <img src="/api/placeholder/100/100" alt="Secretary" className="w-full h-full object-cover" />
                 </div>
-                <h4 className="font-bold">Name Here</h4>
+                <h4 className="font-bold">Kavindi Thirasha</h4>
                 <p className="text-xs text-neutral-500 uppercase">Secretary</p>
+                <div className="flex justify-center gap-2 mt-3">
+                  <a href="#" className="w-7 h-7 rounded-full bg-neutral-800 flex items-center justify-center hover:bg-orange-500 hover:text-black transition-all">
+                    <Linkedin size={12}/>
+                  </a>
+                  <a href="#" className="w-7 h-7 rounded-full bg-neutral-800 flex items-center justify-center hover:bg-orange-500 hover:text-black transition-all">
+                    <Facebook size={12}/>
+                  </a>
+                  <a href="#" className="w-7 h-7 rounded-full bg-neutral-800 flex items-center justify-center hover:bg-orange-500 hover:text-black transition-all">
+                    <Instagram size={12}/>
+                  </a>
+                </div>
               </div>
 
               <div className="bg-neutral-900/50 rounded-xl p-6 border border-white/5 text-center">
                 <div className="w-16 h-16 rounded-full bg-neutral-800 mx-auto mb-3 overflow-hidden">
                    <img src="/api/placeholder/100/100" alt="Vice Sec" className="w-full h-full object-cover" />
                 </div>
-                <h4 className="font-bold">Name Here</h4>
+                <h4 className="font-bold">Viyathma Anuradhi</h4>
                 <p className="text-xs text-neutral-500 uppercase">Vice Secretary</p>
+                <div className="flex justify-center gap-2 mt-3">
+                  <a href="#" className="w-7 h-7 rounded-full bg-neutral-800 flex items-center justify-center hover:bg-orange-500 hover:text-black transition-all">
+                    <Linkedin size={12}/>
+                  </a>
+                  <a href="#" className="w-7 h-7 rounded-full bg-neutral-800 flex items-center justify-center hover:bg-orange-500 hover:text-black transition-all">
+                    <Facebook size={12}/>
+                  </a>
+                  <a href="#" className="w-7 h-7 rounded-full bg-neutral-800 flex items-center justify-center hover:bg-orange-500 hover:text-black transition-all">
+                    <Instagram size={12}/>
+                  </a>
+                </div>
               </div>
 
               <div className="bg-neutral-900/50 rounded-xl p-6 border border-white/5 text-center">
                 <div className="w-16 h-16 rounded-full bg-neutral-800 mx-auto mb-3 overflow-hidden">
-                   <img src="/api/placeholder/100/100" alt="Treasurer" className="w-full h-full object-cover" />
+                   <img src="/images/crew/Excom/WhatsApp Image 2025-12-23 at 7.05.07 PM.jpeg" alt="Treasurer" className="w-full h-full object-cover" />
                 </div>
-                <h4 className="font-bold">Name Here</h4>
+                <h4 className="font-bold">Rusira Sandul</h4>
                 <p className="text-xs text-neutral-500 uppercase">Treasurer</p>
+                <div className="flex justify-center gap-2 mt-3">
+                  <a href="https://www.linkedin.com/in/rusira-sandul-b6bb87292?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" className="w-7 h-7 rounded-full bg-neutral-800 flex items-center justify-center hover:bg-orange-500 hover:text-black transition-all">
+                    <Linkedin size={12}/>
+                  </a>
+                  <a href="https://www.facebook.com/profile.php?id=61580672780166&mibextid=wwXIfr" className="w-7 h-7 rounded-full bg-neutral-800 flex items-center justify-center hover:bg-orange-500 hover:text-black transition-all">
+                    <Facebook size={12}/>
+                  </a>
+                  <a href="" className="w-7 h-7 rounded-full bg-neutral-800 flex items-center justify-center hover:bg-orange-500 hover:text-black transition-all">
+                    <Instagram size={12}/>
+                  </a>
+                </div>
               </div>
            </div>
         </div>
@@ -237,25 +292,76 @@ const AuroraConference = () => {
       {/* CONFERENCE FOOTER */}
       <footer className="border-t border-white/10 bg-black pt-16 pb-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+            {/* About Section */}
             <div className="text-center md:text-left">
               <h2 className="text-2xl font-bold tracking-tight mb-2">AURORA<span className="text-orange-400">2026</span></h2>
-              <p className="text-neutral-500 text-sm max-w-xs">
+              <p className="text-neutral-500 text-sm">
                 Organised by Department of Computer Science<br/>
-                University of Sri Jayewardenepura<br/>
-                
+                University of Sri Jayewardenepura
               </p>
+              <div className="flex justify-center md:justify-start gap-3 mt-4">
+                <a href="#" className="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center hover:bg-orange-500 hover:text-black transition-all"><Instagram size={16}/></a>
+                <a href="#" className="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center hover:bg-orange-500 hover:text-black transition-all"><Linkedin size={16}/></a>
+                <a href="#" className="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center hover:bg-orange-500 hover:text-black transition-all"><Twitter size={16}/></a>
+              </div>
             </div>
-            
-            <div className="flex gap-4">
-               <a href="#" className="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center hover:bg-orange-500 hover:text-black transition-all"><Instagram size={18}/></a>
-               <a href="#" className="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center hover:bg-orange-500 hover:text-black transition-all"><Linkedin size={18}/></a>
-               <a href="#" className="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center hover:bg-orange-500 hover:text-black transition-all"><Twitter size={18}/></a>
+
+            {/* Contact Persons */}
+            <div className="lg:col-span-3">
+              <h3 className="text-lg font-bold mb-4 text-orange-400">Contact Us</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                {/* Co-Chair 1 */}
+                <div className="bg-neutral-900/50 rounded-lg p-4 border border-white/5">
+                  <p className="text-xs text-neutral-500 uppercase mb-2 font-mono">Co-Chair</p>
+                  <h4 className="font-bold text-white mb-1">Chamod Devranga</h4>
+                  <p className="text-sm text-neutral-400 mb-3">chamod@aurora2026.lk</p>
+                  <div className="flex gap-2">
+                    <a href="#" className="w-7 h-7 rounded-full bg-neutral-800 flex items-center justify-center hover:bg-orange-500 hover:text-black transition-all">
+                      <Linkedin size={12}/>
+                    </a>
+                    <a href="#" className="w-7 h-7 rounded-full bg-neutral-800 flex items-center justify-center hover:bg-orange-500 hover:text-black transition-all">
+                      <Facebook size={12}/>
+                    </a>
+                  </div>
+                </div>
+
+                {/* Co-Chair 2 */}
+                <div className="bg-neutral-900/50 rounded-lg p-4 border border-white/5">
+                  <p className="text-xs text-neutral-500 uppercase mb-2 font-mono">Co-Chair</p>
+                  <h4 className="font-bold text-white mb-1">Sachith Wickramasekara</h4>
+                  <p className="text-sm text-neutral-400 mb-3">sachith@aurora2026.lk</p>
+                  <div className="flex gap-2">
+                    <a href="#" className="w-7 h-7 rounded-full bg-neutral-800 flex items-center justify-center hover:bg-orange-500 hover:text-black transition-all">
+                      <Linkedin size={12}/>
+                    </a>
+                    <a href="#" className="w-7 h-7 rounded-full bg-neutral-800 flex items-center justify-center hover:bg-orange-500 hover:text-black transition-all">
+                      <Facebook size={12}/>
+                    </a>
+                  </div>
+                </div>
+
+                {/* Secretary */}
+                <div className="bg-neutral-900/50 rounded-lg p-4 border border-white/5">
+                  <p className="text-xs text-neutral-500 uppercase mb-2 font-mono">Secretary</p>
+                  <h4 className="font-bold text-white mb-1">Kavindi Thirasha</h4>
+                  <p className="text-sm text-neutral-400 mb-3">kavindi@aurora2026.lk</p>
+                  <div className="flex gap-2">
+                    <a href="#" className="w-7 h-7 rounded-full bg-neutral-800 flex items-center justify-center hover:bg-orange-500 hover:text-black transition-all">
+                      <Linkedin size={12}/>
+                    </a>
+                    <a href="#" className="w-7 h-7 rounded-full bg-neutral-800 flex items-center justify-center hover:bg-orange-500 hover:text-black transition-all">
+                      <Facebook size={12}/>
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+
           <div className="border-t border-neutral-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-neutral-600">
             <p>&copy; 2026 Aurora Conference. All rights reserved.</p>
-            <p>&copy; Rusira Sandul</p>
+            <p>Developed by Rusira Sandul</p>
           </div>
         </div>
       </footer>
