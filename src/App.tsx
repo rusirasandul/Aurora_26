@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { 
   Menu, X, ArrowRight, 
-  Linkedin, Twitter, Instagram, Facebook
+  Linkedin, Twitter, Instagram, Facebook,
+  Clock, MapPin, Users, Bot, ShieldAlert, Trophy, Coffee, Calendar, Cpu
 } from 'lucide-react';
 
 const AuroraConference = () => {
@@ -39,7 +40,7 @@ const AuroraConference = () => {
           <div className="flex justify-between items-center h-20">
             <div className="flex-shrink-0 flex items-center gap-2">
               <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-orange-600 to-amber-300 flex items-center justify-center shadow-[0_0_15px_rgba(251,146,60,0.5)] overflow-hidden">
-                <img src="/images/logo/Screenshot 2025-12-23 184548.png" alt="Aurora Logo" className="w-full h-full object-cover" />
+                <img src="/images/logo/aurora-logo.png" alt="Aurora Logo" className="w-full h-full object-cover" />
               </div>
               <span className="font-bold text-2xl tracking-tighter">AURORA<span className="text-orange-400">2026</span></span>
             </div>
@@ -62,6 +63,24 @@ const AuroraConference = () => {
             </div>
           </div>
         </div>
+        
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden bg-neutral-900 border-b border-white/10 absolute w-full left-0 top-20">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+              {['Home', 'About', 'Speakers', 'Team', 'Gallery'].map((item) => (
+                <a 
+                  key={item} 
+                  href={`#${item.toLowerCase()}`} 
+                  className="block px-3 py-2 text-base font-medium text-neutral-300 hover:text-orange-400 hover:bg-white/5 rounded-md"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item}
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* HERO SECTION */}
@@ -134,6 +153,119 @@ const AuroraConference = () => {
                   ))}
                </div>
              ))}
+          </div>
+        </div>
+      </section>
+
+      {/* TIMELINE SECTION */}
+      <section id="timeline" className="py-24 relative overflow-hidden bg-neutral-950">
+        {/* Background Decor */}
+        <div className="absolute right-0 top-1/3 w-[500px] h-[500px] bg-orange-600/5 rounded-full blur-[120px] -z-10"></div>
+
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-20">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4">The <span className="text-orange-400">Roadmap</span></h2>
+            <p className="text-neutral-400 max-w-xl mx-auto">
+              Aurora 2026 is a journey, not just a day. Join us across three months of innovation.
+            </p>
+          </div>
+
+          <div className="relative">
+            {/* Vertical Line */}
+            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-neutral-800 md:-translate-x-1/2"></div>
+
+            <div className="space-y-16">
+              {[
+                {
+                  date: "JAN 15, 2026",
+                  status: "Completed",
+                  title: "Phase 1: The Rise of Agentic AI",
+                  type: "Virtual Panel Discussion",
+                  description: "A deep dive into how autonomous AI agents are reshaping software development. Featuring speakers from WSO2 and Google.",
+                  icon: <Bot className="w-6 h-6" />,
+                  link: "#"
+                },
+                {
+                  date: "FEB 10, 2026",
+                  status: "Registration Open",
+                  title: "Phase 2: The Human Firewall",
+                  type: "Physical Workshop @ UOSJ",
+                  description: "Interactive session on Social Engineering. Learn the psychology behind attacks and how to defend against them.",
+                  icon: <ShieldAlert className="w-6 h-6" />,
+                  link: "#register-phase2"
+                },
+                {
+                  date: "MAR 05, 2026",
+                  status: "Coming Soon",
+                  title: "Phase 3: Connected Intelligence",
+                  type: "Hybrid Seminar",
+                  description: "Exploring the convergence of IoT and AI. How smart devices are becoming autonomous agents.",
+                  icon: <Cpu className="w-6 h-6" />,
+                  link: "#"
+                },
+                {
+                  date: "MAR 25, 2026",
+                  status: "Grand Finale",
+                  title: "The 'Mind Heist' Championship",
+                  type: "On-site Competition & Quiz",
+                  description: "The ultimate test of knowledge. Teams compete in a CTF-style Social Engineering and AI quiz.",
+                  highlight: "Prize Pool: LKR 100,000",
+                  icon: <Trophy className="w-6 h-6" />,
+                  link: "#"
+                }
+              ].map((event, index) => (
+                <div key={index} className={`relative flex flex-col md:flex-row gap-8 items-center ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
+                  
+                  {/* Center Date Badge */}
+                  <div className="absolute left-8 md:left-1/2 -translate-x-1/2 w-16 h-16 rounded-full border-4 border-neutral-950 bg-neutral-900 flex flex-col items-center justify-center z-10 shadow-[0_0_20px_rgba(0,0,0,0.8)] group-hover:scale-110 transition-transform">
+                    <span className="text-[10px] text-neutral-500 font-bold uppercase">{event.date.split(' ')[0]}</span>
+                    <span className="text-lg font-bold text-white">{event.date.split(' ')[1].replace(',', '')}</span>
+                  </div>
+
+                  {/* Content Card */}
+                  <div className={`pl-20 md:pl-0 md:w-1/2 ${index % 2 === 0 ? 'md:pl-16 text-left' : 'md:pr-16 md:text-right'}`}>
+                    
+                    <div className={`group relative bg-neutral-900/40 backdrop-blur-sm border border-white/5 p-6 rounded-2xl hover:border-orange-500/30 transition-all duration-300 hover:bg-neutral-900/80`}>
+                      
+                      {/* Status Badge */}
+                      <div className={`inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider 
+                        ${event.status === 'Registration Open' ? 'bg-orange-500 text-black animate-pulse' : 
+                          event.status === 'Completed' ? 'bg-neutral-800 text-neutral-500' : 'bg-orange-500/10 text-orange-400 border border-orange-500/20'} 
+                        ${index % 2 !== 0 ? 'md:ml-auto' : ''}`}>
+                        {event.status}
+                      </div>
+
+                      <h3 className="text-2xl font-bold text-white mb-2 flex flex-col gap-1">
+                        {event.title}
+                        <span className="text-sm font-normal text-neutral-400 font-mono">{event.type}</span>
+                      </h3>
+
+                      <p className="text-neutral-400 text-sm mb-6 leading-relaxed">
+                        {event.description}
+                      </p>
+
+                      {event.highlight && (
+                        <div className={`mb-6 p-3 bg-gradient-to-r from-orange-500/10 to-transparent border-l-2 border-orange-500 rounded-r-lg
+                          ${index % 2 !== 0 ? 'md:border-l-0 md:border-r-2 md:bg-gradient-to-l' : ''}`}>
+                          <span className="text-orange-400 font-bold text-sm flex items-center gap-2">
+                            <Trophy size={16} /> {event.highlight}
+                          </span>
+                        </div>
+                      )}
+
+                      {event.status === 'Registration Open' && (
+                        <a href={event.link} className={`inline-flex items-center gap-2 text-white font-bold hover:text-orange-400 transition-colors ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
+                          Register Now <ArrowRight size={18} />
+                        </a>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Spacer for Desktop Layout */}
+                  <div className="hidden md:block md:w-1/2"></div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -229,7 +361,7 @@ const AuroraConference = () => {
 
               <div className="bg-neutral-900/50 rounded-xl p-6 border border-white/5 text-center">
                 <div className="w-16 h-16 rounded-full bg-neutral-800 mx-auto mb-3 overflow-hidden">
-                   <img src="/images/crew/Excom/WhatsApp Image 2025-12-23 at 7.05.07 PM.jpeg" alt="Treasurer" className="w-full h-full object-cover" />
+                   <img src="/images/crew/Excom/rusira-profile.jpg" alt="Treasurer" className="w-full h-full object-cover" />
                 </div>
                 <h4 className="font-bold">Rusira Sandul</h4>
                 <p className="text-xs text-neutral-500 uppercase">Treasurer</p>
