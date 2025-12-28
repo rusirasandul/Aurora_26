@@ -48,6 +48,26 @@ const userSchema = new mongoose.Schema({
     default: 'Student',
   },
   
+  // Attendance & QR System
+  registrationId: {
+    type: String,
+    unique: true,
+    sparse: true, // Allow null values while maintaining uniqueness
+  },
+  qrCode: {
+    type: String, // Base64 QR code image
+  },
+  isCheckedIn: {
+    type: Boolean,
+    default: false,
+  },
+  checkInTime: {
+    type: Date,
+  },
+  checkedInBy: {
+    type: String, // Admin name who scanned
+  },
+  
   // Competition Registration (Optional)
   isCompetitionParticipant: {
     type: Boolean,

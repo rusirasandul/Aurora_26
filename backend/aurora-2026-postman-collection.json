@@ -1,0 +1,214 @@
+{
+  "info": {
+    "name": "Aurora 2026 API Tests",
+    "description": "Complete test collection for Aurora 2026 Conference API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseURL",
+      "value": "http://localhost:5000",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Register New User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fullName\": \"Test User\",\n  \"email\": \"testuser@example.com\",\n  \"phone\": \"0771111111\",\n  \"password\": \"password123\",\n  \"university\": \"University of Sri Jayewardenepura\",\n  \"faculty\": \"Faculty of Applied Sciences\",\n  \"yearOfStudy\": \"3rd Year\",\n  \"eventPhase\": \"Phase 1\",\n  \"attendeeType\": \"Student\",\n  \"isCompetitionParticipant\": true,\n  \"tshirtSize\": \"L\"\n}"
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/auth/register",
+              "host": ["{{baseURL}}"],
+              "path": ["api", "auth", "register"]
+            }
+          }
+        },
+        {
+          "name": "Login User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"rusira@example.com\",\n  \"password\": \"password123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/auth/login",
+              "host": ["{{baseURL}}"],
+              "path": ["api", "auth", "login"]
+            }
+          }
+        },
+        {
+          "name": "Register Duplicate Email",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fullName\": \"Duplicate Test\",\n  \"email\": \"rusira@example.com\",\n  \"phone\": \"0771234567\",\n  \"password\": \"password123\",\n  \"university\": \"Test University\",\n  \"eventPhase\": \"Phase 1\",\n  \"attendeeType\": \"Student\"\n}"
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/auth/register",
+              "host": ["{{baseURL}}"],
+              "path": ["api", "auth", "register"]
+            }
+          }
+        },
+        {
+          "name": "Login Invalid Credentials",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"rusira@example.com\",\n  \"password\": \"wrongpassword\"\n}"
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/auth/login",
+              "host": ["{{baseURL}}"],
+              "path": ["api", "auth", "login"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Admin - Check-in",
+      "item": [
+        {
+          "name": "Scan QR Code (First Time)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"AUR-TEST01\",\n  \"adminName\": \"Test Admin\"\n}"
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/admin/scan",
+              "host": ["{{baseURL}}"],
+              "path": ["api", "admin", "scan"]
+            }
+          }
+        },
+        {
+          "name": "Scan QR Code (Already Checked In)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"AUR-TEST03\",\n  \"adminName\": \"Test Admin\"\n}"
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/admin/scan",
+              "host": ["{{baseURL}}"],
+              "path": ["api", "admin", "scan"]
+            }
+          }
+        },
+        {
+          "name": "Scan Invalid QR Code",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"AUR-INVALID\",\n  \"adminName\": \"Test Admin\"\n}"
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/admin/scan",
+              "host": ["{{baseURL}}"],
+              "path": ["api", "admin", "scan"]
+            }
+          }
+        },
+        {
+          "name": "Get All Attendance",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/api/admin/attendance",
+              "host": ["{{baseURL}}"],
+              "path": ["api", "admin", "attendance"]
+            }
+          }
+        },
+        {
+          "name": "Get Attendance Stats",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/api/admin/stats",
+              "host": ["{{baseURL}}"],
+              "path": ["api", "admin", "stats"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/api/health",
+          "host": ["{{baseURL}}"],
+          "path": ["api", "health"]
+        }
+      }
+    }
+  ]
+}

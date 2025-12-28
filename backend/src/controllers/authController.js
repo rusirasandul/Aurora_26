@@ -1,6 +1,8 @@
 import User from '../models/User.js';
 import jwt from 'jsonwebtoken';
 import { validationResult } from 'express-validator';
+import QRCode from 'qrcode';
+import { nanoid } from 'nanoid';
 
 // Generate JWT Token
 const generateToken = (userId) => {
@@ -47,6 +49,12 @@ export const registerUser = async (req, res) => {
       });
     }
 
+    // Generate Unique Registration ID (e.g., "AUR-X7Y2K9")
+    const uniqueId = `AUR-${nanoid(6).toUpperCase()}`;
+
+    // Generate QR Code containing the unique ID
+    const qrCodeData = await QRCode.toDataURL(uniqueId);
+
     // Create new user
     const user = await User.create({
       fullName,
@@ -61,6 +69,8 @@ export const registerUser = async (req, res) => {
       isCompetitionParticipant,
       dietaryRestrictions,
       tshirtSize,
+      registrationId: uniqueId,
+      qrCode: qrCodeData,
     });
 
     // Generate token
@@ -76,7 +86,9 @@ export const registerUser = async (req, res) => {
           email: user.email,
           eventPhase: user.eventPhase,
           attendeeType: user.attendeeType,
+          registrationId: user.registrationId,
         },
+        qrCode: user.qrCode,
         token,
       },
     });
