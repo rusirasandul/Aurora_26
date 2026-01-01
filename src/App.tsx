@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { 
   Menu, X, ArrowRight, 
   Linkedin, Twitter, Instagram, Facebook
@@ -6,6 +6,16 @@ import {
 
 const AuroraConference = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showSplash, setShowSplash] = useState(true);
+
+  // Hide splash screen after 5 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowSplash(false);
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   // Data for the 6 Committees
   const committees = [
@@ -16,6 +26,66 @@ const AuroraConference = () => {
     { name: "Technical & Web", heads: ["Avishka T.", "Praveen L."], members: ["Member 1", "Member 2", "Member 3", "Member 4", "Member 5", "Member 6"] },
     { name: "Delegate Experience", heads: ["Tharushi P.", "Janith R."], members: ["Member 1", "Member 2", "Member 3", "Member 4", "Member 5", "Member 6"] },
   ];
+
+  // Splash Screen
+  if (showSplash) {
+    return (
+      <div className="fixed inset-0 z-[100] bg-neutral-950 flex items-center justify-center">
+        <style>{`
+          @keyframes logoFade {
+            0% { opacity: 0; transform: scale(0.8); }
+            20% { opacity: 1; transform: scale(1); }
+            80% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(1.2); }
+          }
+          @keyframes letterPop {
+            0% { opacity: 0; transform: translateY(20px) scale(0.8); }
+            50% { opacity: 1; transform: translateY(-5px) scale(1.1); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+          }
+          .splash-logo {
+            animation: logoFade 2.5s ease-in-out;
+          }
+          .letter {
+            display: inline-block;
+            opacity: 0;
+            animation: letterPop 0.5s ease-out forwards;
+          }
+          .letter:nth-child(1) { animation-delay: 1.5s; }
+          .letter:nth-child(2) { animation-delay: 1.65s; }
+          .letter:nth-child(3) { animation-delay: 1.8s; }
+          .letter:nth-child(4) { animation-delay: 1.95s; }
+          .letter:nth-child(5) { animation-delay: 2.1s; }
+          .letter:nth-child(6) { animation-delay: 2.25s; }
+          .letter:nth-child(7) { animation-delay: 2.4s; }
+          .letter:nth-child(8) { animation-delay: 2.55s; }
+          .letter:nth-child(9) { animation-delay: 2.7s; }
+          .letter:nth-child(10) { animation-delay: 2.85s; }
+        `}</style>
+        
+        <div className="flex flex-col items-center gap-8">
+          {/* Logo "A" */}
+          <div className="splash-logo w-32 h-32 rounded-full bg-gradient-to-tr from-orange-600 to-amber-300 flex items-center justify-center shadow-[0_0_60px_rgba(251,146,60,0.6)] overflow-hidden">
+            <img src="/images/logo/Screenshot 2025-12-23 184548.png" alt="Aurora Logo" className="w-full h-full object-cover" />
+          </div>
+          
+          {/* Aurora Text - Letter by Letter */}
+          <div className="flex items-center gap-1">
+            <h1 className="text-6xl font-bold tracking-tighter text-white flex">
+              {'AURORA'.split('').map((letter, index) => (
+                <span key={index} className="letter">{letter}</span>
+              ))}
+              <span className="text-orange-400 flex">
+                {'2026'.split('').map((letter, index) => (
+                  <span key={index + 6} className="letter">{letter}</span>
+                ))}
+              </span>
+            </h1>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-neutral-950 text-white font-sans selection:bg-orange-500 selection:text-black">
@@ -134,6 +204,41 @@ const AuroraConference = () => {
                   ))}
                </div>
              ))}
+          </div>
+        </div>
+      </section>
+
+      {/* TIMELINE SECTION */}
+      <section id="timeline" className="py-20 relative">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold">Event <span className="text-orange-400">Timeline</span></h2>
+            <p className="text-neutral-400 mt-2">The journey to Aurora 2026</p>
+          </div>
+
+          <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-neutral-700 before:to-transparent">
+            {[
+              { date: 'Jan 15', title: 'Registration Opens', desc: 'Early bird registration begins for all university students.', active: true },
+              { date: 'Feb 01', title: 'Workshop Series', desc: 'Expert sessions on Agentic AI, IoT, and Industry Trends.', active: false },
+              { date: 'Feb 20', title: 'Speaker Lineup Revealed', desc: 'Announcement of keynote speakers and panel discussions.', active: false },
+              { date: 'Mar 10', title: 'Aurora 2026 Conference', desc: 'Main event day at University of Sri Jayewardenepura.', active: false },
+            ].map((event, index) => (
+              <div key={index} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                {/* Icon/Dot */}
+                <div className={`flex items-center justify-center w-10 h-10 rounded-full border-4 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-xl ${event.active ? 'bg-orange-500 border-neutral-900 shadow-orange-500/50' : 'bg-neutral-900 border-neutral-700'}`}>
+                  {event.active && <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>}
+                </div>
+                
+                {/* Content Card */}
+                <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-xl border border-white/5 bg-neutral-900/50 backdrop-blur-sm hover:border-orange-500/30 transition-all">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="font-bold text-white text-lg">{event.title}</span>
+                    <span className="text-xs font-mono text-orange-400 border border-orange-500/20 bg-orange-500/10 px-2 py-1 rounded">{event.date}</span>
+                  </div>
+                  <p className="text-neutral-400 text-sm">{event.desc}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
