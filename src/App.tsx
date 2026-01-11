@@ -19,69 +19,183 @@ const AuroraConference = () => {
 
   // Data for the 6 Committees
   const committees = [
-    { name: "Program & Content", heads: ["Rusira Sandul", "Oshini A."], members: ["Member 1", "Member 2", "Member 3", "Member 4", "Member 5", "Member 6"] },
-    { name: "Logistics & Venue", heads: ["Kavindu P.", "Nimali S."], members: ["Member 1", "Member 2", "Member 3", "Member 4", "Member 5", "Member 6"] },
-    { name: "Marketing & PR", heads: ["Shenal D.", "Amaya K."], members: ["Member 1", "Member 2", "Member 3", "Member 4", "Member 5", "Member 6"] },
-    { name: "Finance & Sponsorship", heads: ["Isuru M.", "Dilshan J."], members: ["Member 1", "Member 2", "Member 3", "Member 4", "Member 5", "Member 6"] },
-    { name: "Technical & Web", heads: ["Avishka T.", "Praveen L."], members: ["Member 1", "Member 2", "Member 3", "Member 4", "Member 5", "Member 6"] },
-    { name: "Delegate Experience", heads: ["Tharushi P.", "Janith R."], members: ["Member 1", "Member 2", "Member 3", "Member 4", "Member 5", "Member 6"] },
+    { 
+      name: "Program & Content", 
+      heads: ["Rusira Sandul", "Oshini A."], 
+      members: [
+        { name: "Member 1", photo: "/api/placeholder/100/100" },
+        { name: "Member 2", photo: "/api/placeholder/100/100" },
+        { name: "Member 3", photo: "/api/placeholder/100/100" },
+        { name: "Member 4", photo: "/api/placeholder/100/100" },
+        { name: "Member 5", photo: "/api/placeholder/100/100" },
+        { name: "Member 6", photo: "/api/placeholder/100/100" }
+      ] 
+    },
+    { 
+      name: "Logistics & Venue", 
+      heads: ["Kavindu P.", "Nimali S."], 
+      members: [
+        { name: "Member 1", photo: "/api/placeholder/100/100" },
+        { name: "Member 2", photo: "/api/placeholder/100/100" },
+        { name: "Member 3", photo: "/api/placeholder/100/100" },
+        { name: "Member 4", photo: "/api/placeholder/100/100" },
+        { name: "Member 5", photo: "/api/placeholder/100/100" },
+        { name: "Member 6", photo: "/api/placeholder/100/100" }
+      ] 
+    },
+    { 
+      name: "Marketing & PR", 
+      heads: ["Shenal D.", "Amaya K."], 
+      members: [
+        { name: "Member 1", photo: "/api/placeholder/100/100" },
+        { name: "Member 2", photo: "/api/placeholder/100/100" },
+        { name: "Member 3", photo: "/api/placeholder/100/100" },
+        { name: "Member 4", photo: "/api/placeholder/100/100" },
+        { name: "Member 5", photo: "/api/placeholder/100/100" },
+        { name: "Member 6", photo: "/api/placeholder/100/100" }
+      ] 
+    },
+    { 
+      name: "Finance & Sponsorship", 
+      heads: ["Isuru M.", "Dilshan J."], 
+      members: [
+        { name: "Member 1", photo: "/api/placeholder/100/100" },
+        { name: "Member 2", photo: "/api/placeholder/100/100" },
+        { name: "Member 3", photo: "/api/placeholder/100/100" },
+        { name: "Member 4", photo: "/api/placeholder/100/100" },
+        { name: "Member 5", photo: "/api/placeholder/100/100" },
+        { name: "Member 6", photo: "/api/placeholder/100/100" }
+      ] 
+    },
+    { 
+      name: "Technical & Web", 
+      heads: ["Avishka T.", "Praveen L."], 
+      members: [
+        { name: "Member 1", photo: "/api/placeholder/100/100" },
+        { name: "Member 2", photo: "/api/placeholder/100/100" },
+        { name: "Member 3", photo: "/api/placeholder/100/100" },
+        { name: "Member 4", photo: "/api/placeholder/100/100" },
+        { name: "Member 5", photo: "/api/placeholder/100/100" },
+        { name: "Member 6", photo: "/api/placeholder/100/100" }
+      ] 
+    },
+    { 
+      name: "Delegate Experience", 
+      heads: ["Tharushi P.", "Janith R."], 
+      members: [
+        { name: "Member 1", photo: "/api/placeholder/100/100" },
+        { name: "Member 2", photo: "/api/placeholder/100/100" },
+        { name: "Member 3", photo: "/api/placeholder/100/100" },
+        { name: "Member 4", photo: "/api/placeholder/100/100" },
+        { name: "Member 5", photo: "/api/placeholder/100/100" },
+        { name: "Member 6", photo: "/api/placeholder/100/100" }
+      ] 
+    },
   ];
 
   // Splash Screen
   if (showSplash) {
     return (
-      <div className="fixed inset-0 z-[100] bg-neutral-950 flex items-center justify-center">
+      <div className="fixed inset-0 z-[100] bg-gradient-to-br from-neutral-950 via-neutral-900 to-black flex items-center justify-center overflow-hidden">
         <style>{`
-          @keyframes logoFade {
-            0% { opacity: 0; transform: scale(0.8); }
-            20% { opacity: 1; transform: scale(1); }
-            80% { opacity: 1; transform: scale(1); }
-            100% { opacity: 0; transform: scale(1.2); }
+          @keyframes hexGrid {
+            0%, 100% { opacity: 0.03; }
+            50% { opacity: 0.08; }
           }
-          @keyframes letterPop {
-            0% { opacity: 0; transform: translateY(20px) scale(0.8); }
-            50% { opacity: 1; transform: translateY(-5px) scale(1.1); }
-            100% { opacity: 1; transform: translateY(0) scale(1); }
+          @keyframes float {
+            0%, 100% { transform: translateY(0px) translateX(0px); }
+            33% { transform: translateY(-20px) translateX(10px); }
+            66% { transform: translateY(10px) translateX(-10px); }
           }
-          .splash-logo {
-            animation: logoFade 2.5s ease-in-out;
+          @keyframes pulse {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 1; }
           }
-          .letter {
-            display: inline-block;
-            opacity: 0;
-            animation: letterPop 0.5s ease-out forwards;
+          @keyframes glassReveal {
+            0% { opacity: 0; transform: scale(0.9); backdrop-filter: blur(0px); }
+            100% { opacity: 1; transform: scale(1); backdrop-filter: blur(20px); }
           }
-          .letter:nth-child(1) { animation-delay: 1.5s; }
-          .letter:nth-child(2) { animation-delay: 1.65s; }
-          .letter:nth-child(3) { animation-delay: 1.8s; }
-          .letter:nth-child(4) { animation-delay: 1.95s; }
-          .letter:nth-child(5) { animation-delay: 2.1s; }
-          .letter:nth-child(6) { animation-delay: 2.25s; }
-          .letter:nth-child(7) { animation-delay: 2.4s; }
-          .letter:nth-child(8) { animation-delay: 2.55s; }
-          .letter:nth-child(9) { animation-delay: 2.7s; }
-          .letter:nth-child(10) { animation-delay: 2.85s; }
+          @keyframes textGlow {
+            0% { opacity: 0; text-shadow: 0 0 0px rgba(251, 146, 60, 0); }
+            100% { opacity: 1; text-shadow: 0 0 40px rgba(251, 146, 60, 0.6), 0 0 80px rgba(251, 146, 60, 0.3); }
+          }
+          @keyframes circuitDraw {
+            0% { stroke-dashoffset: 1000; opacity: 0; }
+            50% { opacity: 1; }
+            100% { stroke-dashoffset: 0; opacity: 0.8; }
+          }
+          
+          .hex-grid {
+            background-image: 
+              linear-gradient(30deg, transparent 48%, rgba(251, 146, 60, 0.03) 49%, rgba(251, 146, 60, 0.03) 51%, transparent 52%),
+              linear-gradient(150deg, transparent 48%, rgba(251, 146, 60, 0.03) 49%, rgba(251, 146, 60, 0.03) 51%, transparent 52%),
+              linear-gradient(90deg, transparent 48%, rgba(251, 146, 60, 0.03) 49%, rgba(251, 146, 60, 0.03) 51%, transparent 52%);
+            background-size: 80px 140px;
+            animation: hexGrid 4s ease-in-out infinite;
+          }
+          
+          .glass-card {
+            animation: glassReveal 1s ease-out forwards;
+          }
+          
+          .aurora-text {
+            animation: textGlow 1.5s ease-out 0.5s forwards;
+          }
+          
+          .particle {
+            animation: float 3s ease-in-out infinite, pulse 2s ease-in-out infinite;
+          }
+          
+          .circuit-line {
+            stroke-dasharray: 1000;
+            animation: circuitDraw 2s ease-out forwards;
+          }
         `}</style>
         
-        <div className="flex flex-col items-center gap-8">
-          {/* Logo "A" */}
-          <div className="splash-logo w-32 h-32 rounded-full bg-gradient-to-tr from-orange-600 to-amber-300 flex items-center justify-center shadow-[0_0_60px_rgba(251,146,60,0.6)] overflow-hidden">
-            <img src="/images/logo/Screenshot 2025-12-23 184548.png" alt="Aurora Logo" className="w-full h-full object-cover" />
-          </div>
+        {/* Hexagonal Grid Background */}
+        <div className="absolute inset-0 hex-grid opacity-40"></div>
+        
+        {/* Floating Particles */}
+        {[...Array(20)].map((_, i) => (
+          <div
+            key={i}
+            className="particle absolute w-1 h-1 bg-orange-500 rounded-full"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 3}s`,
+              animationDuration: `${3 + Math.random() * 2}s`,
+            }}
+          />
+        ))}
+        
+        {/* Circuit Lines SVG */}
+        <svg className="absolute inset-0 w-full h-full opacity-30" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="circuitGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#f97316" stopOpacity="0.8" />
+              <stop offset="100%" stopColor="#fbbf24" stopOpacity="0.3" />
+            </linearGradient>
+          </defs>
+          <path d="M 100,200 Q 300,100 500,300 T 900,400" stroke="url(#circuitGradient)" strokeWidth="2" fill="none" className="circuit-line" style={{ animationDelay: '0s' }} />
+          <path d="M 200,600 Q 400,400 700,500 T 1100,300" stroke="url(#circuitGradient)" strokeWidth="2" fill="none" className="circuit-line" style={{ animationDelay: '0.3s' }} />
+          <path d="M 50,400 Q 200,600 500,450 T 1000,600" stroke="url(#circuitGradient)" strokeWidth="2" fill="none" className="circuit-line" style={{ animationDelay: '0.6s' }} />
+          <circle cx="500" cy="300" r="4" fill="#f97316" className="pulse" style={{ animationDelay: '1s' }} />
+          <circle cx="700" cy="500" r="4" fill="#fbbf24" className="pulse" style={{ animationDelay: '1.3s' }} />
+          <circle cx="500" cy="450" r="4" fill="#fb923c" className="pulse" style={{ animationDelay: '1.6s' }} />
+        </svg>
+        
+        {/* Glass Card with Aurora Text */}
+        <div className="glass-card relative z-10 px-16 py-12 rounded-3xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl shadow-[0_8px_32px_0_rgba(251,146,60,0.2)]">
+          {/* Glowing edges */}
+          <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-orange-500/20 via-transparent to-amber-500/20 blur-xl -z-10"></div>
           
-          {/* Aurora Text - Letter by Letter */}
-          <div className="flex items-center gap-1">
-            <h1 className="text-6xl font-bold tracking-tighter text-white flex">
-              {'AURORA'.split('').map((letter, index) => (
-                <span key={index} className="letter">{letter}</span>
-              ))}
-              <span className="text-orange-400 flex">
-                {'2026'.split('').map((letter, index) => (
-                  <span key={index + 6} className="letter">{letter}</span>
-                ))}
-              </span>
-            </h1>
-          </div>
+          <h1 className="aurora-text text-7xl md:text-8xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-orange-500 opacity-0">
+            AURORA 2026
+          </h1>
+          
+          {/* Subtle reflection effect */}
+          <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/5 to-transparent rounded-t-3xl pointer-events-none"></div>
         </div>
       </div>
     );
@@ -120,9 +234,6 @@ const AuroraConference = () => {
                   {item}
                 </a>
               ))}
-              <button className="bg-orange-500 hover:bg-orange-400 text-black px-6 py-2 rounded-full text-sm font-bold transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(249,115,22,0.4)]">
-                Get Tickets
-              </button>
             </div>
 
             <div className="md:hidden flex items-center">
@@ -380,11 +491,13 @@ const AuroraConference = () => {
               {/* Members List */}
               <div className="p-6 bg-neutral-950">
                 <p className="text-xs font-mono text-neutral-500 uppercase mb-3">Committee Members</p>
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-2 gap-3">
                   {committee.members.map((member, mIdx) => (
-                    <div key={mIdx} className="flex items-center gap-2 text-sm text-neutral-400">
-                      <div className="w-1.5 h-1.5 rounded-full bg-neutral-700 group-hover:bg-orange-500/50"></div>
-                      {member}
+                    <div key={mIdx} className="flex items-center gap-2 group/member hover:bg-neutral-900/50 p-2 rounded-lg transition-all">
+                      <div className="w-8 h-8 rounded-full bg-neutral-800 overflow-hidden border border-neutral-700 group-hover/member:border-orange-500/50 transition-colors flex-shrink-0">
+                        <img src={member.photo} alt={member.name} className="w-full h-full object-cover" />
+                      </div>
+                      <span className="text-sm text-neutral-400 group-hover/member:text-white transition-colors truncate">{member.name}</span>
                     </div>
                   ))}
                 </div>
